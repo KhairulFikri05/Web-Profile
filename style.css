@@ -135,7 +135,7 @@ section {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 100px 5% 50px; /* Padding untuk menghindari navbar tertutup */
+    padding: 100px 5%; /* Padding untuk menghindari navbar tertutup */
     position: relative;
 }
 
@@ -1258,6 +1258,7 @@ CONTACT SECTION STYLING
     opacity: 1;
 
 }
+
 
 
 
