@@ -1124,17 +1124,24 @@ CONTACT SECTION STYLING
 
 @media (max-width: 1100px) {
     /* 1. Navbar & Hamburg Fix */
+    html, body {
+        overflow-x: hidden;
+        width: 100%;
+    }
+    
     .nav-container .links {
         display: none; /* Sembunyikan menu desktop */
     }
     
     .hamburg {
         display: block;
+        position: relative;
         color: var(--accent-neon);
         font-size: 2.2rem;
         cursor: pointer;
         /* Hapus posisi relative/right agar mengikuti alur flexbox */
         margin-right: 0; 
+        right: 0;
     }
 
     /* Pastikan Navbar punya jarak dari pinggir layar HP */
@@ -1258,6 +1265,7 @@ CONTACT SECTION STYLING
     opacity: 1;
 
 }
+
 
 
 
