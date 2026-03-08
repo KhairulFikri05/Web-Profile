@@ -29,7 +29,7 @@ nav {
     box-shadow: 0 0 10px rgba(0, 255, 195, 0.3);
     position: fixed;
     top: 0;
-    z-index: 1000;
+    z-index: 10000;
     background: rgba(25, 25, 25, 0.95);
     backdrop-filter: blur(10px); /* Tambahan efek blur kaca */
     display: flex;
@@ -1257,4 +1257,5 @@ MEDIA QUERIES (Untuk Responsive Design)
 
 .tilt-wrapper:hover .neon-glare {
     opacity: 1;
+
 }
