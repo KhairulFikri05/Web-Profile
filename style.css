@@ -1133,6 +1133,7 @@ MEDIA QUERIES (Untuk Responsive Design)
         margin-right: 10px; 
         position: relative;
         right: 0;
+        gap: 2rem;
     }
 
     /* Layout berubah menjadi atas-bawah */
@@ -1264,6 +1265,7 @@ MEDIA QUERIES (Untuk Responsive Design)
     opacity: 1;
 
 }
+
 
 
 
