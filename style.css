@@ -40,9 +40,11 @@ nav {
 .nav-container {
     display: flex;
     justify-content: space-between;
-    width: 90%;
+    width: 100%;
+    padding: 0.5%
     max-width: 1200px; /* Batas maksimal lebar di desktop besar */
     align-items: center;
+    margin: 0 auto;
 }
 
 .logo {
@@ -1259,3 +1261,4 @@ MEDIA QUERIES (Untuk Responsive Design)
     opacity: 1;
 
 }
+
