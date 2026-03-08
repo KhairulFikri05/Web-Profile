@@ -1119,27 +1119,34 @@ CONTACT SECTION STYLING
 }
 
 /* =========================================
-MEDIA QUERIES (Untuk Responsive Design)
-========================================= */
+   MEDIA QUERIES (Satu Blok untuk Semua)
+   ========================================= */
 
 @media (max-width: 1100px) {
-    /* Navbar berubah ke mode hamburger */
-    .links {
-        display: none;
+    /* 1. Navbar & Hamburg Fix */
+    .nav-container .links {
+        display: none; /* Sembunyikan menu desktop */
     }
     
     .hamburg {
         display: block;
-        margin-right: 10px; 
-        position: relative;
-        right: 0;
-        gap: 2rem;
+        color: var(--accent-neon);
+        font-size: 2.2rem;
+        cursor: pointer;
+        /* Hapus posisi relative/right agar mengikuti alur flexbox */
+        margin-right: 0; 
     }
 
-    /* Layout berubah menjadi atas-bawah */
+    /* Pastikan Navbar punya jarak dari pinggir layar HP */
+    .nav-container {
+        padding: 0 25px; 
+    }
+
+    /* 2. Hero / Home Section Fix */
     .main-container {
         flex-direction: column-reverse;
         text-align: center;
+        gap: 2rem;
         margin-top: 30px;
     }
 
@@ -1148,25 +1155,27 @@ MEDIA QUERIES (Untuk Responsive Design)
     }
 
     h1 {
-        font-size: 2.8rem;
+        font-size: 2.5rem; /* Ukuran tengah-tengah agar pas di HP */
+    }
+
+    p {
+        font-size: 1rem;
     }
 
     .typewriter {
         font-size: 1.5rem;
     }
 
-    /* Menengahkan icon social media & tombol */
     .social-links {
         justify-content: center;
     }
 
-    /* Menyesuaikan ukuran gambar untuk tablet/HP */
     .main-container .image {
-        width: 300px;
-        height: 300px;
+        width: 280px;
+        height: 280px;
     }
 
-    /* Tambahan untuk About Section di HP */
+    /* 3. About Section Fix */
     .about-container {
         flex-direction: column;
         text-align: center;
@@ -1180,31 +1189,15 @@ MEDIA QUERIES (Untuk Responsive Design)
     .about-highlights {
         justify-content: center;
     }
-}
 
-@media (max-width: 1100px) {
-    h1 {
-        font-size: 2.2rem;
-    }
-
-    p {
-        font-size: 1rem;
-    }
-
-    .main-container {
-        flex-direction: column-reverse;
-        text-align: center;
-        margin-top: 30px;
-    }
-
-    .btn {
+    /* 4. Button Fix */
+    .cv-btn {
         display: flex;
         justify-content: center;
-        margin-top: 10px;
-        width: 100%;
+        margin: 10px auto;
+        width: fit-content;
     }
 }
-
 
 /* =========================================
 3D TILT FOTO (BENTUK KOTAK SUDUT TUMPUL)
@@ -1265,6 +1258,7 @@ MEDIA QUERIES (Untuk Responsive Design)
     opacity: 1;
 
 }
+
 
 
 
