@@ -1130,6 +1130,9 @@ MEDIA QUERIES (Untuk Responsive Design)
     
     .hamburg {
         display: block;
+        margin-right: 10px; 
+        position: relative;
+        right: 0;
     }
 
     /* Layout berubah menjadi atas-bawah */
@@ -1261,4 +1264,5 @@ MEDIA QUERIES (Untuk Responsive Design)
     opacity: 1;
 
 }
+
 
