@@ -453,12 +453,70 @@ p {
     text-align: center;
 }
 
-/* --- RESPONSIVE MOBILE --- */
+/* =========================================
+FIX MOBILE VIEW (ANTI BERANTAKAN)
+   ========================================= */
+
 @media (max-width: 991px) {
-    .about-container { flex-direction: column; gap: 2rem; }
-    .about-text { max-width: 100%; height: 580px; }
-    .about-img { max-width: 280px; }
-    .flip-card-front h2 { font-size: 2.5rem; }
+    /* 1. Paksa Foto & Teks berbaris vertikal */
+    .about-container {
+        flex-direction: column !important;
+        gap: 2rem;
+        padding: 0 15px;
+    }
+
+    /* 2. Beri ruang luas untuk kartu di HP */
+    .about-text {
+        width: 100%;
+        max-width: 100%;
+        min-height: 750px; /* TINGGI DITAMBAH: Agar tabel tidak meledak keluar */
+        height: auto;
+        perspective: 1000px;
+    }
+
+    /* 3. Pastikan Sisi Depan & Belakang mengikuti tinggi baru */
+    .flip-card-front, .flip-card-back {
+        padding: 25px 15px; /* Kecilkan padding samping agar teks lega */
+        height: 100%;
+        justify-content: flex-start; /* Teks mulai dari atas, bukan tengah */
+    }
+
+    /* 4. Fix Judul Bio Data (Jangan Menabrak) */
+    .flip-card-back h2 {
+        font-size: 2.2rem;
+        margin-top: 10px;
+        text-align: center;
+    }
+
+    /* 5. Fix Tabel Biodata (Biang Kerok Berantakan) */
+    .bio-table {
+        margin-top: 15px;
+    }
+
+    .bio-table td {
+        padding: 15px 5px; /* Beri jarak antar baris agar tidak tumpang tindih */
+        font-size: 0.9rem;
+        display: table-cell; /* Pastikan tetap bentuk tabel */
+        vertical-align: top;
+    }
+
+    .bio-table td.label {
+        width: 40%; /* Kunci lebar label agar titik dua sejajar */
+        white-space: nowrap; /* Jangan biarkan kata 'Jenis Kelamin' terpotong */
+    }
+
+    /* 6. Hilangkan kotak cyan nyasar & perbaiki hint */
+    .flip-hint {
+        margin-top: auto;
+        padding-bottom: 10px;
+        text-align: center;
+    }
+
+    /* 7. Foto Profil di Mobile (Perkecil sedikit) */
+    .about-img {
+        max-width: 250px;
+        margin: 0 auto;
+    }
 }
 
 /* =========================================
