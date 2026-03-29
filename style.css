@@ -427,6 +427,14 @@ p {
 }
 
 /* --- Logic Perspective (Panggung 3D) --- */
+.about-text {
+    flex: 1;
+    perspective: 1000px;
+    /* KUNCI: Sesuaikan tinggi ini agar teks & highlight muat sempurna */
+    min-height: 520px;
+    position: relative;
+}
+
 .flip-card-inner {
     position: relative;
     width: 100%;
