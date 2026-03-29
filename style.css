@@ -320,104 +320,145 @@ p {
     100% { transform: scale(1); }
 }
 
-/* --- ABOUT SECTION --- */
+/* --- RESET & CONTAINER --- */
 #about {
     background-color: #1f1f1f;
     padding: 100px 5%;
     display: flex;
     justify-content: center;
     align-items: center;
+    min-height: 100vh;
 }
 
 .about-container {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    gap: 4rem;
-    max-width: 1200px;
+    justify-content: center;
+    gap: 3rem; /* Jarak pas antar foto dan teks */
+    max-width: 1000px; /* Dipersempit agar tidak "Terlalu Lebar" */
     width: 100%;
 }
 
+/* --- FOTO PROFIL --- */
 .about-img {
     flex: 1;
-    display: flex;
-    justify-content: center;
+    max-width: 350px; /* Foto tidak terlalu besar */
 }
 
 .about-img img {
     width: 100%;
-    max-width: 400px;
     border-radius: 20px;
-    box-shadow: 0 0 20px rgba(0, 238, 255, 0.15);
     border: 2px solid var(--accent-neon);
+    box-shadow: 0 0 20px rgba(0, 238, 255, 0.15);
 }
 
+/* --- STAGE FLIP (KUNCI ANTI-BERACAK) --- */
 .about-text {
     flex: 1;
+    perspective: 1000px;
+    max-width: 500px; /* Membatasi lebar kartu agar padat */
+    height: 520px;    /* Kunci tinggi agar layout tidak melompat */
+    position: relative;
 }
 
-.about-text h2 {
-    font-size: 3.5rem;
-    margin-bottom: 0.5rem;
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-style: preserve-3d;
 }
 
-.about-text h2 span {
-    color: var(--accent-neon);
+.about-text:hover .flip-card-inner {
+    transform: rotateY(180deg);
 }
 
-.about-text h3 {
-    font-size: 1.5rem;
-    margin-bottom: 1.5rem;
-    color: var(--text-light);
-    font-weight: 500;
+/* --- BASE CARD STYLE --- */
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border-radius: 20px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
 }
 
-.about-text p {
-    font-size: 1.1rem;
-    color: var(--text-muted);
-    line-height: 1.8;
-    margin-bottom: 2rem;
-    text-align: justify;
+/* --- SISI DEPAN (Clean & Rapi) --- */
+.flip-card-front {
+    background: #1f1f1f;
+    border: none !important; /* Tanpa garis border di depan */
+    justify-content: center;
 }
 
-/* Kotak Sorotan (Highlights) */
+.flip-card-front h2 { font-size: 3rem; margin-bottom: 0.5rem; }
+.flip-card-front h2 span { color: var(--accent-neon); }
+.flip-card-front h3 { font-size: 1.3rem; margin-bottom: 1rem; color: var(--text-light); }
+.flip-card-front p { font-size: 1rem; color: var(--text-muted); line-height: 1.6; text-align: justify; }
+
 .about-highlights {
     display: flex;
-    gap: 1.5rem;
+    gap: 10px;
     flex-wrap: wrap;
+    margin: 20px 0;
 }
 
 .highlight {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
     background: rgba(0, 238, 255, 0.05);
-    padding: 10px 20px;
+    padding: 8px 15px;
     border-radius: 8px;
     border: 1px solid var(--accent-neon);
-    transition: 0.3s ease;
-}
-
-.highlight:hover {
-    background: var(--accent-neon);
-    color: var(--bg-dark);
-    box-shadow: 0 0 15px var(--accent-neon);
-    transform: translateY(-5px);
-}
-
-.highlight:hover i {
-    color: var(--bg-dark);
-}
-
-.highlight i {
+    font-size: 0.85rem;
     color: var(--accent-neon);
-    font-size: 1.2rem;
-    transition: 0.3s ease;
 }
 
-.highlight span {
-    font-weight: 600;
+/* --- SISI BELAKANG (Neon Table) --- */
+.flip-card-back {
+    background: #191919;
+    transform: rotateY(180deg);
+    border: 2px solid var(--accent-neon); /* Border neon hanya di belakang */
+    box-shadow: 0 0 25px rgba(0, 238, 255, 0.2);
+    justify-content: center;
+}
+
+.bio-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 15px 0;
+}
+
+.bio-table td {
+    padding: 10px 0;
+    color: white;
     font-size: 0.95rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.bio-table td.label {
+    color: var(--accent-neon);
+    font-weight: bold;
+    width: 35%; /* Menyeimbangkan kolom */
+}
+
+.flip-hint {
+    margin-top: 15px;
+    font-size: 0.8rem;
+    color: var(--accent-neon);
+    opacity: 0.6;
+    text-align: center;
+}
+
+/* --- RESPONSIVE MOBILE --- */
+@media (max-width: 991px) {
+    .about-container { flex-direction: column; gap: 2rem; }
+    .about-text { max-width: 100%; height: 580px; }
+    .about-img { max-width: 280px; }
+    .flip-card-front h2 { font-size: 2.5rem; }
 }
 
 /* =========================================
