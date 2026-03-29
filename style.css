@@ -356,7 +356,7 @@ p {
     flex: 1;
     perspective: 1000px;
     /* KUNCI: Sesuaikan tinggi ini agar teks & highlight muat sempurna */
-    min-height: 520px;
+    min-height: 500px;
     position: relative;
 }
 
@@ -431,7 +431,7 @@ p {
     flex: 1;
     perspective: 1000px;
     /* KUNCI: Sesuaikan tinggi ini agar teks & highlight muat sempurna */
-    min-height: 520px;
+    min-height: 500px;
     position: relative;
 }
 
