@@ -1097,6 +1097,87 @@ EXPERIENCE SECTION (Neon Timeline)
 }
 
 /* =========================================
+   PERSONAL GALLERY (FULL WIDTH MATCH)
+   ========================================= */
+
+#gallery {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 100px 5%; /* Padding sama dengan section lain */
+    width: 100%;
+    background-color: #1f1f1f;
+}
+
+.gallery-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.gallery-header h2 {
+    font-size: 3.5rem; /* Ukuran sama dengan Project h2 */
+}
+
+/* --- Wrapper Grid (INI YANG KITA LEBARKAN) --- */
+.phone-gallery-grid {
+    display: grid;
+    /* Tetap 3 kolom tapi ukurannya fleksibel (1fr) */
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 2.5rem;          /* Gap lebar biar lega, sama kayak Project */
+    width: 100%;          /* Paksa ambil seluruh lebar yang ada */
+    max-width: 1200px;    /* KUNCI: Samakan dengan max-width section Project */
+    margin: 0 auto;       /* Pastikan tetap di tengah */
+}
+
+.gallery-item {
+    position: relative;
+    width: 100%;          /* Biar ngikutin lebar kolom grid */
+    aspect-ratio: 1 / 1;  /* Tetap kotak sempurna ala album HP */
+    background: #191919;
+    border-radius: 15px;
+    overflow: hidden;
+    border: 1px solid rgba(0, 238, 255, 0.1);
+    transition: 0.4s ease;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;    /* Foto anti-gepeng */
+    transition: 0.5s ease;
+}
+
+/* --- Efek Hover (Biar serasi sama kartu Project) --- */
+.gallery-item:hover {
+    transform: translateY(-10px);
+    border-color: var(--accent-neon);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 238, 255, 0.2);
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+/* --- RESPONSIVE FIX --- */
+@media (max-width: 991px) {
+    .phone-gallery-grid {
+        grid-template-columns: repeat(2, 1fr); /* Tablet jadi 2 kolom */
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .phone-gallery-grid {
+        grid-template-columns: repeat(2, 1fr); /* HP tetap 2 kolom biar gak kekecilan */
+        gap: 10px;
+    }
+    .gallery-header h2 {
+        font-size: 2.5rem;
+    }
+}
+
+
+/* =========================================
 CONTACT SECTION STYLING
    ========================================= */
 
