@@ -73,71 +73,73 @@
     </section>
 
     <section id="about">
-    <div class="about-container">
-        <div class="about-img" data-aos="fade-right" data-aos-duration="1500">
-            <div class="tilt-wrapper" id="tiltPhoto">
-                <img src="img/about-pic.png" alt="Khairul Fikri">
-                <div class="neon-glare"></div>
+        <div class="about-container" data-aos="fade-up">
+            
+            <div class="about-img">
+                <div class="tilt-wrapper" id="tiltPhoto">
+                    <img src="img/about-pic.png" alt="Khairul Fikri">
+                    <div class="neon-glare"></div>
+                </div>
             </div>
-        </div>
 
-        <div class="about-text" data-aos="fade-left" data-aos-duration="1500">
-            <div class="flip-card-inner">
-                
-                <div class="flip-card-front">
-                    <h2>About <span>Me</span></h2>
-                    <h3>Mahasiswa Informatika & Tech Enthusiast</h3>
-                    <p>
-                        "Saya adalah mahasiswa Informatika di Universitas Syiah Kuala yang menaruh minat besar pada pengembangan perangkat lunak, perancangan UI/UX, dan data mining. Saya percaya bahwa teknologi terbaik adalah yang mampu memberikan dampak nyata bagi masyarakat luas."
-                    </p>
-
-                    <div class="about-highlights">
-                        <div class="highlight"><i class="fa-solid fa-laptop-code"></i> <span>Software & UI/UX</span></div>
-                        <div class="highlight"><i class="fa-solid fa-microphone"></i> <span>Public Speaking</span></div>
-                        <div class="highlight"><i class="fa-solid fa-face-smile"></i> <span>Self Development</span></div>
-                    </div>
+            <div class="about-text" id="aboutCard" onclick="toggleFlip()">
+                <div class="flip-card-inner">
                     
-                    <div class="flip-hint">Hover/Tap to see Bio <i class="fa-solid fa-rotate"></i></div>
+                    <div class="flip-card-front">
+                        <h2>About <span>Me</span></h2>
+                        <h3>Mahasiswa Informatika & Tech Enthusiast</h3>
+                        <p>"Saya adalah mahasiswa Informatika di Universitas Syiah Kuala yang menaruh minat besar pada pengembangan perangkat lunak, perancangan UI/UX, dan data mining. Saya percaya bahwa teknologi terbaik adalah yang mampu memberikan dampak nyata bagi masyarakat luas."</p>
+
+                        <div class="about-highlights">
+                            <div class="highlight"><i class="fa-solid fa-laptop-code"></i> <span>Software & UI/UX</span></div>
+                            <div class="highlight"><i class="fa-solid fa-microphone"></i> <span>Public Speaking</span></div>
+                            <div class="highlight"><i class="fa-solid fa-face-smile"></i> <span>Self Development</span></div>
+                        </div>
+                        
+                        <div class="flip-hint">Tap/Hover to see Bio <i class="fa-solid fa-rotate"></i></div>
+                    </div>
+
+                    <div class="flip-card-back">
+                        
+                        <div class="kapsul-biodata-final">
+                            Bio <span>Data</span>
+                        </div>
+                        
+                        <table class="bio-table">
+                            <tr>
+                                <td class="label">Nama</td>
+                                <td>: Khairul Fikri</td>
+                            </tr>
+                            <tr>
+                                <td class="label">Prodi</td>
+                                <td>: Informatika, USK</td>
+                            </tr>
+                            <tr>
+                                <td class="label">Hobi</td>
+                                <td>: Gaming & Design</td>
+                            </tr>
+                            <tr>
+                                <td class="label">Cita-Cita</td>
+                                <td>: Founder Startup</td>
+                            </tr>
+                            <tr>
+                                <td class="label">Agama</td>
+                                <td>: Islam</td>
+                            </tr>
+                            <tr>
+                                <td class="label">Jenis Kelamin</td>
+                                <td>: Laki-laki</td>
+                            </tr>
+                        </table>
+
+                        <div class="back-intro-wrapper">
+                            <p class="back-btn">Back to Intro <i class="fa-solid fa-rotate-left"></i></p>
+                        </div>
+                        
+                    </div>
                 </div>
-
-                <div class="flip-card-back">
-                <h2>Bio <span>Data</span></h2>
-                
-                <table class="bio-table">
-                    <tr>
-                        <td class="label">Nama</td>
-                        <td>: Khairul Fikri</td>
-                    </tr>
-                    <tr>
-                        <td class="label">Prodi</td>
-                        <td>: Informatika, USK</td>
-                    </tr>
-                    <tr>
-                        <td class="label">Hobi</td>
-                        <td>: Gaming & Design</td>
-                    </tr>
-                    <tr>
-                        <td class="label">Cita-Cita</td>
-                        <td>: Founder Startup</td>
-                    </tr>
-                    <tr>
-                        <td class="label">Agama</td>
-                    <td>: Islam</td>
-                    </tr>
-                    <tr>
-                        <td class="label">Jenis Kelamin</td>
-                        <td>: Laki-laki</td>
-                    </tr>
-                </table>
-
-                <div class="back-intro-wrapper">
-                    <p onclick="closeMenu()" class="back-btn">Back to Intro <i class="fa-solid fa-rotate-left"></i></p>
-                </div>
-            </div>
-
             </div>
         </div>
-    </div>
     </section>
 
     <section id="skills">
@@ -234,7 +236,25 @@
     </div>
 
     <div class="projects-grid">
-        
+        <div class="project-card" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
+            <div class="project-img">
+                <img src="img/project-kalkulator.png" alt="Kalkulator Digital">
+            </div>
+            <div class="project-content">
+                <h3>Kalkulator Digital</h3>
+                <p>Kalkulator web interaktif dengan fitur standar dan *scientific* yang dilengkapi sistem manajemen riwayat otomatis berbasis PHP dan MySQL.</p>
+                <div class="project-tags">
+                    <span>HTML</span>
+                    <span>CSS</span>
+                    <span>JAVA SCRIPT</span>
+                    <span>PHP & MY SQL</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://kalkulatorfikri.10001mb.com/" target="_blank" class="project-btn"><i class="fa-solid fa-arrow-up-right-from-square"></i> Project Link </a>
+                </div>
+            </div>
+        </div>
+
         <div class="project-card" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
             <div class="project-img">
                 <img src="img/project-smong.png" alt="Smong Digital">
@@ -379,7 +399,7 @@
 
     </div>
     </section>
-    
+
     <section id="gallery">
     <div class="gallery-wrapper">
         <div class="gallery-header" data-aos="fade-up">
@@ -439,51 +459,93 @@
 
     <section id="contact">
     <div class="contact-container" data-aos="zoom-in" data-aos-duration="1200">
+        
         <div class="contact-header">
             <h2>Get In <span>Touch</span></h2>
             <p>Saya selalu terbuka untuk kolaborasi proyek UI/UX, Software Development, atau kegiatan pengembangan diri. Mari berdiskusi!</p>
         </div>
 
-        <div class="contact-wrapper">
-            <a href="mailto:khairulfikri1505@gmail.com" class="contact-card">
-                <i class="fa-solid fa-envelope"></i>
-                <h3>Email</h3>
-                <span>Hubungi via Surel</span>
-            </a>
+        <div class="contact-main-wrapper">
+            
+            <div class="contact-info">
+                <a href="mailto:khairulfikri1505@gmail.com" class="contact-card">
+                    <i class="fa-solid fa-envelope"></i>
+                    <div class="card-text">
+                        <h3>Email</h3>
+                        <span>khairulfikri1505@gmail.com</span>
+                    </div>
+                </a>
 
-            <a href="https://www.instagram.com/khairulfikri_3?igsh=bnFoeTkybHYwZDZ0" target="_blank" class="contact-card">
-                <i class="fa-brands fa-instagram"></i>
-                <h3>Instagram</h3>
-                <span>DM melalui Instagram</span>
-            </a>
+                <a href="https://www.linkedin.com/in/khairul-fikri-836a6933a" target="_blank" class="contact-card">
+                    <i class="fa-brands fa-linkedin"></i>
+                    <div class="card-text">
+                        <h3>LinkedIn</h3>
+                        <span>Networking Profesional</span>
+                    </div>
+                </a>
 
-            <a href="https://www.linkedin.com/in/khairul-fikri-836a6933a" target="_blank" class="contact-card">
-                <i class="fa-brands fa-linkedin"></i>
-                <h3>LinkedIn</h3>
-                <span>Networking Profesional</span>
-            </a>
+                <a href="https://github.com/KhairulFikri05" target="_blank" class="contact-card">
+                    <i class="fa-brands fa-github"></i>
+                    <div class="card-text">
+                        <h3>GitHub</h3>
+                        <span>Lihat Kode Proyek</span>
+                    </div>
+                </a>
 
-            <a href="https://github.com/KhairulFikri05" target="_blank" class="contact-card">
-                <i class="fa-brands fa-github"></i>
-                <h3>GitHub</h3>
-                <span>Lihat Kode Proyek</span>
-            </a>
+                <a href="https://www.instagram.com/khairulfikri_3?igsh=bnFoeTkybHYwZDZ0" target="_blank" class="contact-card">
+                    <i class="fa-brands fa-instagram"></i>
+                    <div class="card-text">
+                        <h3>Instagram</h3>
+                        <span>DM melalui Instagram</span>
+                    </div>
+                </a>
+            </div>
+
+            <div class="contact-form-container">
+                <form id="contact-form" action="https://formspree.io/f/xjgjobyl" method="POST" class="contact-form">
+                    
+                    <div class="input-group">
+                        <label for="user-name" class="input-label">Nama Lengkap</label>
+                        <input type="text" id="user-name" name="name" placeholder="Masukkan nama Anda" autocomplete="name" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="user-email" class="input-label">Alamat Email</label>
+                        <input type="email" id="user-email" name="email" placeholder="email@contoh.com" autocomplete="email" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="user-message" class="input-label">Pesan Anda</label>
+                        <textarea id="user-message" name="message" placeholder="Tulis pesan kamu di sini..." required></textarea>
+                    </div>
+
+                    <button type="submit" class="send-btn">
+                        Send Message <i class="fa-solid fa-paper-plane"></i>
+                    </button>
+                </form>
+                
+            </div>
+            
         </div>
+        
+            <div class="message-results-area">
+                            <div id="status-container" style="margin-top: 20px;"></div>
+                            <div id="messages-display" class="messages-list">
+                                <h4 style="margin-bottom: 15px; color: var(--accent-neon); display: none;" id="msg-title">Pesan Terkirim:</h4>
+                                <div id="submitted-messages"></div>
+                            </div>
+                        </div>
 
-        <footer class="footer">
-            <p>&copy; 2026 <span>Khairul Fikri</span>. Built as an Informatics Student at USK.</p>
-        </div>
-    </div>
-    </section>
+                    </div> <footer class="footer">
+                        <p>&copy; 2026 <span>Khairul Fikri</span>. Built as an Informatics Student at USK.</p>
+                    </footer>
 
-    <!-- Scripts -->
+                </div> </section>
+
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
         AOS.init({offset: 0});
     </script>
     <script src="script.js"></script>
 </body>
-
 </html>
-
-
