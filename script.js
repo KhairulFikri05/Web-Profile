@@ -125,3 +125,132 @@ function slideSkills(direction) {
         container.scrollLeft += scrollAmount; // Geser ke kanan
     }
 }
+
+function toggleFlip() {
+    const card = document.getElementById('aboutCard');
+    card.classList.toggle('is-flipped');
+}
+
+function toggleTheme() {
+    const body = document.body;
+    const icon = document.getElementById('theme-icon');
+    
+    // Ganti class di body
+    body.classList.toggle('light-mode');
+    
+    // Cek apakah sekarang mode terang atau gelap
+    if (body.classList.contains('light-mode')) {
+        icon.classList.replace('fa-moon', 'fa-sun'); // Ganti ikon ke matahari
+        localStorage.setItem('theme', 'light');      // Simpan pilihan
+    } else {
+        icon.classList.replace('fa-sun', 'fa-moon'); // Ganti ikon ke bulan
+        localStorage.setItem('theme', 'dark');
+    }
+}
+
+// ==========================================================
+// LOGIKA GUESTBOOK GLOBAL (JSONBIN.IO)
+// ==========================================================
+
+const form = document.getElementById("contact-form");
+const statusContainer = document.getElementById("status-container");
+const submittedMessages = document.getElementById("submitted-messages");
+const msgTitle = document.getElementById("msg-title");
+
+// PENGATURAN JSONBIN
+const BIN_ID = "69e7a66caaba8821972217d0";
+const API_KEY = "$2a$10$LnzN4c8MsBCX042yIqFiQ.nV7y8.oxOPeLotoBcDCmt29tzXCAEL6";
+
+const JSONBIN_URL = `https://api.jsonbin.io/v3/b/${BIN_ID}`;
+
+// 1. Fungsi Mengambil Komentar dari Internet (JSONBin)
+async function loadComments() {
+    try {
+        const response = await fetch(JSONBIN_URL, {
+            headers: { "X-Master-Key": API_KEY }
+        });
+        
+        const data = await response.json();
+        const comments = data.record.comments || [];
+        
+        if (comments.length > 0) {
+            msgTitle.style.display = "block";
+            submittedMessages.innerHTML = "";
+            
+            // Tampilkan dari yang paling baru
+            comments.forEach(comment => {
+                const newMsg = document.createElement("div");
+                newMsg.classList.add("message-item");
+                newMsg.innerHTML = `<strong>${comment.name}</strong><p>${comment.message}</p>`;
+                submittedMessages.appendChild(newMsg);
+            });
+        }
+    } catch (error) {
+        console.error("Gagal memuat komentar dari server:", error);
+    }
+}
+
+// Tarik data pas web pertama kali dibuka
+document.addEventListener("DOMContentLoaded", () => {
+    loadComments();
+});
+
+// 2. Fungsi Mengirim Komentar Baru
+async function handleSubmit(event) {
+    event.preventDefault();
+    
+    const formData = new FormData(event.target);
+    const name = formData.get("name");
+    const message = formData.get("message");
+
+    statusContainer.innerHTML = "<p style='color: var(--accent-neon);'>Pesan sedang dikirim...</p>";
+
+    try {
+        // Langkah A: Ambil data lama dulu dari server
+        const getResponse = await fetch(JSONBIN_URL, {
+            headers: { "X-Master-Key": API_KEY }
+        });
+        const getData = await getResponse.json();
+        const commentsLama = getData.record.comments || [];
+
+        // Langkah B: Tambahkan pesan baru di urutan paling atas
+        commentsLama.unshift({ name: name, message: message });
+
+        // Langkah C: Update (PUT) data gabungan ke JSONBin
+        const putResponse = await fetch(JSONBIN_URL, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json",
+                "X-Master-Key": API_KEY
+            },
+            body: JSON.stringify({ comments: commentsLama })
+        });
+
+        if (putResponse.ok) {
+            statusContainer.innerHTML = "<p style='color: #00ff88;'>Berhasil! Pesanmu telah terkirim.</p>";
+            
+            // Render ulang tampilan agar pesan baru langsung muncul
+            loadComments();
+            form.reset();
+
+            setTimeout(() => { statusContainer.innerHTML = ""; }, 3000);
+        } else {
+            throw new Error("Gagal update data di JSONBin");
+        }
+        
+        // (Opsional) Tetap kirim ke Formspree agar masuk ke email pribadi kamu
+        fetch(event.target.action, {
+            method: form.method,
+            body: formData,
+            headers: { 'Accept': 'application/json' }
+        });
+
+    } catch (error) {
+        console.error(error);
+        statusContainer.innerHTML = "<p style='color: #ff4444;'>Oops! Ada masalah koneksi ke server.</p>";
+    }
+}
+
+if (form) {
+    form.addEventListener("submit", handleSubmit);
+}
